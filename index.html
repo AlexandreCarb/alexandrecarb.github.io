@@ -12,130 +12,47 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		<style>
-			body {
-				font-family: 'Arial', sans-serif;
-				background: linear-gradient(135deg, #f06, #48f);
-				color: #fff;
-			}
-
-			#header .content .inner {
-				text-align: center;
-			}
-
-			#header .content .inner h1 {
-				font-size: 2.5em;
-				margin-bottom: 20px;
-				animation: fadeIn 2s;
-			}
-
-			#header .logo .cube {
-				margin-bottom: 20px;
-			}
-
-			.profile-pic {
-				width: 300px;
+			#header .content .inner img {
+				width: 300px; /* Adjust the size as needed */
 				height: auto;
-				border-radius: 50%;
-				border: 5px solid #fff;
-				animation: fadeIn 3s;
+				border-radius: 30%; /* Optional: to make the image circular */
 			}
-
-			.nav-links {
+			#header .logo {
 				display: flex;
 				justify-content: center;
-				gap: 15px;
+				align-items: center;
+				height: 100px; /* Adjust the height as needed */
 			}
-
-			.nav-links a {
-				text-decoration: none;
-				color: #fff;
-				font-weight: bold;
-				padding: 10px 20px;
-				border-radius: 5px;
-				background: rgba(255, 255, 255, 0.2);
-				transition: background 0.3s ease;
-			}
-
-			.nav-links a:hover {
-				background: rgba(255, 255, 255, 0.4);
-			}
-
-			article {
-				animation: fadeIn 1.5s;
-			}
-
-			footer {
-				text-align: center;
-				padding: 20px;
-				background: rgba(0, 0, 0, 0.5);
-			}
-
-			footer .social a {
-				color: #48f;
-				text-decoration: none;
-				margin: 0 10px;
-				transition: color 0.3s;
-			}
-
-			footer .social a:hover {
-				color: #fff;
-			}
-
-			/* Animations */
-			@keyframes fadeIn {
-				from {
-					opacity: 0;
-				}
-				to {
-					opacity: 1;
-				}
-			}
-
-			/* Rotating cube improvements */
+			/* CSS for the rotating cube */
 			@keyframes rotate {
-				0% {
+				from {
 					transform: rotateX(0deg) rotateY(0deg);
 				}
-				100% {
+				to {
 					transform: rotateX(360deg) rotateY(360deg);
 				}
 			}
-
 			.cube {
-				width: 80px;
-				height: 80px;
+				width: 50px;
+				height: 50px;
 				position: relative;
 				transform-style: preserve-3d;
 				transform: rotateX(0deg) rotateY(0deg);
-				animation: rotate 7s infinite linear;
+				animation: rotate 5s infinite linear;
 			}
-
 			.cube div {
 				position: absolute;
-				width: 80px;
-				height: 80px;
-				background: rgba(255, 255, 255, 0.5);
-				border: 1px solid #48f;
+				width: 50px;
+				height: 50px;
+				background: rgba(255, 255, 255, 0.8);
+				border: 1px solid #ccc;
 			}
-
-			.cube .front  { transform: translateZ(40px); }
-			.cube .back   { transform: rotateY(180deg) translateZ(40px); }
-			.cube .left   { transform: rotateY(-90deg) translateZ(40px); }
-			.cube .right  { transform: rotateY(90deg) translateZ(40px); }
-			.cube .top    { transform: rotateX(90deg) translateZ(40px); }
-			.cube .bottom { transform: rotateX(-90deg) translateZ(40px); }
-
-			#bg-overlay {
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background: url('images/background.jpg') no-repeat center center fixed;
-				background-size: cover;
-				opacity: 0.3;
-				z-index: -1;
-			}
+			.cube .front  { transform: translateZ(25px); }
+			.cube .back   { transform: rotateY(180deg) translateZ(25px); }
+			.cube .left   { transform: rotateY(-90deg) translateZ(25px); }
+			.cube .right  { transform: rotateY(90deg) translateZ(25px); }
+			.cube .top    { transform: rotateX(90deg) translateZ(25px); }
+			.cube .bottom { transform: rotateX(-90deg) translateZ(25px); }
 		</style>
 	</head>
 	<body class="is-preload">
@@ -158,11 +75,11 @@
 				<div class="content">
 					<div class="inner">
 						<h1>Alexandre Carbonell</h1>
-						<img src="images/IMG_5692.jpg" alt="Alexandre Carbonell" class="profile-pic" />
+						<img src="images/IMG_5692.jpg" alt="Alexandre Carbonell" />
 					</div>
 				</div>
 				<nav>
-					<ul class="nav-links">
+					<ul>
 						<li><a href="#intro">About Me</a></li>
 						<li><a href="#perso">Personal Interests</a></li>
 						<li><a href="#papers">Papers and Projects</a></li>
@@ -208,16 +125,15 @@
 			<!-- Footer -->
 			<footer id="footer">
 				<p class="copyright">&copy;Alexandre Carbonell 2024.</p>
-				<p class="social">
-					<a href="https://www.linkedin.com/in/alexandre-carbonell" target="_blank">LinkedIn</a> | 
-					<a href="https://github.com/alexandre-carbonell" target="_blank">GitHub</a>
-				</p>
 			</footer>
 
 		</div>
 
-		<!-- BG Overlay -->
-		<div id="bg-overlay"></div>
+		<!-- BG -->
+		<div id="bg"></div>
+
+		<!-- Omega sign -->
+		<div id="omega-sign">Ω</div>
 
 		<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
