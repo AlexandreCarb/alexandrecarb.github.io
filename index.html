@@ -17,9 +17,11 @@
 				height: auto;
 				border-radius: 30%; /* Optional: to make the image circular */
 			}
-			#header .logo span {
-				font-size: 2em; /* Adjust the size as needed */
-				font-weight: bold;
+			#header .logo {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100px; /* Adjust the height as needed */
 			}
 			/* CSS for the rotating cube */
 			@keyframes rotate {
@@ -129,6 +131,9 @@
 
 		<!-- BG -->
 		<div id="bg"></div>
+
+		<!-- Omega sign -->
+		<div id="omega-sign">Ω</div>
 
 		<!-- Scripts -->
 		<script src="assets/js/jquery.min.js"></script>
