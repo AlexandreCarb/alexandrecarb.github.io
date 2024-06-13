@@ -21,15 +21,6 @@
 				font-size: 2em; /* Adjust the size as needed */
 				font-weight: bold;
 			}
-			#omega-sign {
-				position: absolute;
-				font-size: 2em;
-				color: black; /* Adjust the color as needed */
-				pointer-events: none; /* Makes sure the mouse events pass through the omega sign */
-				display: none; /* Initially hidden */
-				z-index: 1000; /* Ensure it appears above other elements */
-				transform: translate(-50%, -50%); /* Center the sign at the cursor */
-			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -111,20 +102,5 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
-		<script>
-			document.addEventListener('DOMContentLoaded', function() {
-				const omegaSign = document.getElementById('omega-sign');
-				
-				document.addEventListener('mousemove', function(e) {
-					omegaSign.style.display = 'block';
-					omegaSign.style.left = e.pageX + 'px';
-					omegaSign.style.top = e.pageY + 'px';
-				});
-				
-				document.addEventListener('mouseout', function() {
-					omegaSign.style.display = 'none';
-				});
-			});
-		</script>
 	</body>
 </html>
