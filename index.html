@@ -5,141 +5,199 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Alexandre Carbonell</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<style>
-			#header .content .inner img {
-				width: 300px; /* Adjust the size as needed */
-				height: auto;
-				border-radius: 30%; /* Optional: to make the image circular */
-			}
-			#header .logo {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				height: 100px; /* Adjust the height as needed */
-			}
-			/* CSS for the rotating cube */
-			@keyframes rotate {
-				from {
-					transform: rotateX(0deg) rotateY(0deg);
-				}
-				to {
-					transform: rotateX(360deg) rotateY(360deg);
-				}
-			}
-			.cube {
-				width: 50px;
-				height: 50px;
-				position: relative;
-				transform-style: preserve-3d;
-				transform: rotateX(0deg) rotateY(0deg);
-				animation: rotate 5s infinite linear;
-			}
-			.cube div {
-				position: absolute;
-				width: 50px;
-				height: 50px;
-				background: rgba(255, 255, 255, 0.8);
-				border: 1px solid #ccc;
-			}
-			.cube .front  { transform: translateZ(25px); }
-			.cube .back   { transform: rotateY(180deg) translateZ(25px); }
-			.cube .left   { transform: rotateY(-90deg) translateZ(25px); }
-			.cube .right  { transform: rotateY(90deg) translateZ(25px); }
-			.cube .top    { transform: rotateX(90deg) translateZ(25px); }
-			.cube .bottom { transform: rotateX(-90deg) translateZ(25px); }
-		</style>
-	</head>
-	<body class="is-preload">
+<head>
+    <title>Alexandre Carbonell</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .dark-mode {
+            background-color: #222;
+            color: #eee;
+        }
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px; /* Adjust the height as needed */
+        }
+        .cube {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(0deg) rotateY(0deg);
+            animation: rotate 5s infinite linear;
+        }
+        .cube div {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ccc;
+        }
+        .cube .front  { transform: translateZ(25px); }
+        .cube .back   { transform: rotateY(180deg) translateZ(25px); }
+        .cube .left   { transform: rotateY(-90deg) translateZ(25px); }
+        .cube .right  { transform: rotateY(90deg) translateZ(25px); }
+        .cube .top    { transform: rotateX(90deg) translateZ(25px); }
+        .cube .bottom { transform: rotateX(-90deg) translateZ(25px); }
+        @keyframes rotate {
+            from {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            to {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+        .parallax {
+            /* Create a parallax effect */
+            background-image: url('images/parallax-bg.jpg');
+            min-height: 400px; 
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .scroll-animation {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-animation.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .article-card {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+        .article-card:hover {
+            transform: scale(1.05);
+        }
+        /* Light/Dark Mode Toggle Button */
+        .toggle-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .toggle-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body class="is-preload">
+    <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    <div id="wrapper">
+        <!-- Header -->
+        <header id="header">
+            <div class="logo">
+                <div class="cube">
+                    <div class="front"></div>
+                    <div class="back"></div>
+                    <div class="left"></div>
+                    <div class="right"></div>
+                    <div class="top"></div>
+                    <div class="bottom"></div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="inner">
+                    <h1>Alexandre Carbonell</h1>
+                    <img src="images/IMG_5692.jpg" alt="Alexandre Carbonell" />
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#intro">About Me</a></li>
+                    <li><a href="#perso">Personal Interests</a></li>
+                    <li><a href="#papers">Papers and Projects</a></li>
+                </ul>
+            </nav>
+        </header>
 
-		<!-- Wrapper -->
-		<div id="wrapper">
+        <!-- Main -->
+        <div id="main">
+            <!-- Parallax Section -->
+            <div class="parallax"></div>
 
-			<!-- Header -->
-			<header id="header">
-				<div class="logo">
-					<div class="cube">
-						<div class="front"></div>
-						<div class="back"></div>
-						<div class="left"></div>
-						<div class="right"></div>
-						<div class="top"></div>
-						<div class="bottom"></div>
-					</div>
-				</div>
-				<div class="content">
-					<div class="inner">
-						<h1>Alexandre Carbonell</h1>
-						<img src="images/IMG_5692.jpg" alt="Alexandre Carbonell" />
-					</div>
-				</div>
-				<nav>
-					<ul>
-						<li><a href="#intro">About Me</a></li>
-						<li><a href="#perso">Personal Interests</a></li>
-						<li><a href="#papers">Papers and Projects</a></li>
-					</ul>
-				</nav>
-			</header>
+            <!-- About -->
+            <article id="intro" class="article-card scroll-animation">
+                <h2 class="major">About Me</h2>
+                <span class="image main"><img src="images/epfleth.jpg" alt="" /></span>
+                <p>Hello, I am Alexandre Carbonell. I have a Master's degree in Applied Mathematics from ETH Zürich, and a Bachelor's degree in Mathematics from EPFL. I hail from the beautiful city of Lyon, France, and currently reside in Zürich, where I work as an Associate - Pricing Analyst at Ageas Re.</p>
+                <a href="Papers/Resume_Alexandre_Carbonell.pdf" target="_blank" class="button">Curriculum Vitae</a>
+                <a href="mailto:alexandrecarbonell.pro@gmail.com" class="button">Contact Me</a>
+            </article>
 
-			<!-- Main -->
-			<div id="main">
+            <!-- Personal Interests -->
+            <article id="perso" class="article-card scroll-animation">
+                <h2 class="major">Personal Interests</h2>
+                <span class="image main"><img src="images/Judo_Wallpaper.jpg" alt="" /></span>
+                <p>Outside of work, I am passionate about sports, particularly Judo, running, and skiing. These activities not only keep me physically fit but also instill discipline and perseverance in all aspects of my life.</p>
+            </article>
 
-				<!-- About -->
-				<article id="intro">
-					<h2 class="major">About Me</h2>
-					<span class="image main"><img src="images/epfleth.jpg" alt="" /></span>
-					<p>Hello, I am Alexandre Carbonell. I have a Master's degree in Applied Mathematics from ETH Zürich, and a Bachelor's degree in Mathematics from EPFL. I hail from the beautiful city of Lyon, France, and currently reside in Zürich, where I work as an Associate - Pricing Analyst at Ageas Re.</p>
-					<li><p>You can find my CV here: <a href="Papers/Resume_Alexandre_Carbonell.pdf" target="_blank">Curriculum Vitae</a>.</p></li>
-					<li><p>And reach me at: <a href="mailto:alexandrecarbonell.pro@gmail.com">alexandrecarbonell.pro@gmail.com</a>.</p></li>
-				</article>
+            <!-- Papers and Projects -->
+            <article id="papers" class="article-card scroll-animation">
+                <h2 class="major">Papers and Projects</h2>
+                <ul>
+                    <li><p>Bachelor Project - 2022: Chebyshev method for the implied volatility in options pricing. <a href="Papers/Report.pdf" target="_blank">Pdf</a></p></li>
+                    <li><p>Paper - 2023: VaR and CVaR analysis for risk management. <a href="Papers/Repport_VaR_CVaR.pdf" target="_blank">Pdf</a></p></li>
+                    <li><p>Paper - 2023: Predictive modeling for insurance claim: Dealing with the challenge of precise prediction through an example. <a href="Papers/Semester_Paper_Report.pdf" target="_blank">Pdf</a></p></li>
+                    <li><p>Master Thesis - 2024: Extrapolation-Aware Nonparametric Inference: Integrating Quantile Forests and Neural Networks in Real-World Data Analysis. (Ongoing Project)</p></li>
+                </ul>
+            </article>
+        </div>
 
-				<!-- Perso -->
-				<article id="perso">
-					<h2 class="major">Personal Interests</h2>
-					<span class="image main"><img src="images/Judo_Wallpaper.jpg" alt="" /></span>
-					<p>Outside of work, I am passionate about sports, particularly Judo, running, and skiing. These activities not only keep me physically fit but also instill discipline and perseverance in all aspects of my life.</p>
-				</article>
+        <!-- Footer -->
+        <footer id="footer">
+            <p class="copyright">&copy; Alexandre Carbonell 2024.</p>
+        </footer>
+    </div>
 
-				<!-- Papers -->
-				<article id="papers">
-					<h2 class="major">Papers and Projects</h2>
-					<ul>
-						<li><p>Bachelor Project - 2022: Chebyshev method for the implied
-							volatility in options pricing. <a href="Papers/Report.pdf" target="_blank">Pdf</a></p></li>
-						<li><p>Paper - 2023: VaR and CVaR analysis for risk
-							management. <a href="Papers/Repport_VaR_CVaR.pdf" target="_blank">Pdf</a></p></li>
-						<li><p>Paper - 2023: Predictive modeling for insurance claim:
-							Dealing with the challenge of precise prediction through an example. <a href="Papers/Semester_Paper_Report.pdf" target="_blank">Pdf</a></p></li>
-						<li><p>Master Thesis - 2024: Extrapolation-Aware Nonparametric Inference: Integrating Quantile Forests and Neural Networks in Real-World Data Analysis. (Ongoing Project)</p></li>
-					</ul>
-				</article>
+    <!-- BG -->
+    <div id="bg"></div>
 
-			</div>
+    <!-- Omega sign -->
+    <div id="omega-sign">Ω</div>
 
-			<!-- Footer -->
-			<footer id="footer">
-				<p class="copyright">&copy;Alexandre Carbonell 2024.</p>
-			</footer>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        window.addEventListener('scroll', function() {
+            var elements = document.querySelectorAll('.scroll-animation');
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            elements.forEach(function(element) {
+                var elementTop = element.getBoundingClientRect().top + scrollTop;
+                if (scrollTop + window.innerHeight > elementTop + 100) {
+                    element.classList.add('visible');
+                }
+            });
+        });
 
-		</div>
-
-		<!-- BG -->
-		<div id="bg"></div>
-
-		<!-- Omega sign -->
-		<div id="omega-sign">Ω</div>
-
-		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
-	</body>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
 </html>
